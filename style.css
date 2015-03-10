@@ -1,0 +1,16 @@
+.custom-nav {
+    background-color: #337AB7;
+}
+.custom-nav h4 {
+    padding: 0.5em;
+    margin: 0 auto;
+    text-align: center;
+    color: white;
+}
+.login-form {
+    margin-top: 1em;
+}
+.panel-title {
+    margin: 0 auto;
+    text-align: center;
+}

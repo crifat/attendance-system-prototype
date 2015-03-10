@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    <script src="http://code.jquery.com/jquery-2.1.3.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="style.css"/>
+
+</head>
+<body>
+    <div class="custom-nav navbar-fixed-top">
+        <h4>Ulab Attendance System</h4>
+    </div>
+    <div class="container-fluid">
+        <div class="login-form">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Login</h3>
+                </div>
+                <div class="panel-body">
+                    <input class="form-control" type="text" placeholder="login credential"/>
+                    &nbsp;
+                    <input class="form-control" type="password" placeholder="password"/>
+                    &nbsp;
+                    <button class="btn btn-success btn-block">Login</button>
+                </div>
+            </div>
+        </div>
+        <div class="select-course">
+            <h5>Current Course</h5>
+            <button class="btn btn-success btn-block">Software Engineering</button>
+            <hr/>
+            <h5>Other Course</h5>
+            <button class="btn btn-warning btn-block">Database Management System</button>
+            <button class="btn btn-warning btn-block">Object Oriented Programming</button>
+        </div>
+        <div class="select-contact-event">
+            <h5>Select Contact Event</h5>
+            <button class="btn btn-danger btn-block">Lecture</button>
+            <button class="btn btn-success btn-block">Seminar</button>
+        </div>
+        <div class="students-list">
+            <h5>Students List</h5>
+            <ul class="list-group">
+                <li class="list-group-item clearfix student-div">
+                    <img src="http://teamer.net/assets/imgs/empty-profile.jpg"/>
+                    <span class="student-name">Md. Rifatul Islam Chayon</span><span class="badge">1</span> <br/>
+                    <span class="student-id">121014009</span>
+                </li>
+                <li class="list-group-item clearfix student-div">
+                    <img src="http://teamer.net/assets/imgs/empty-profile.jpg"/>
+                    <span class="student-name">Sariful Islam Shaon</span><span class="badge">3</span> <br/>
+                    <span class="student-id">121014009</span>
+                </li>
+                <li class="list-group-item clearfix student-div">
+                    <img src="http://teamer.net/assets/imgs/empty-profile.jpg"/>
+                    <span class="student-name">Momtahinul Isdani</span><span class="badge">4</span> <br/>
+                    <span class="student-id">121014009</span>
+                </li>
+                <li class="list-group-item clearfix student-div red">
+                    <img src="http://teamer.net/assets/imgs/empty-profile.jpg"/>
+                    <span class="student-name">Anik Hossain</span><span class="badge">2</span> <br/>
+                    <span class="student-id">121014009</span>
+                </li>
+
+            </ul>
+            <button class="btn btn-success btn-lg btn-block">Submit Attendance</button>
+        </div>
+    </div>
+
+
+
+
+
+
+
+    <style>
+        .custom-nav {
+            background-color: #337AB7;
+        }
+        .container-fluid {
+            margin-top: 3em;
+        }
+        .custom-nav h4 {
+            padding: 0.5em;
+            margin: 0 auto;
+            text-align: center;
+            color: white;
+        }
+        .login-form {
+            margin-top: 1em;
+        }
+        .panel-title {
+            margin: 0 auto;
+            text-align: center;
+        }
+        .select-course h5 {
+            margin: 0 auto;
+            text-align: center;
+            font-size: larger;
+            color: #337AB7;
+            padding: 0.5em;
+        }
+        .select-contact-event h5 {
+            margin: 0 auto;
+            text-align: center;
+            font-size: larger;
+            color: #337AB7;
+            padding: 0.5em;
+        }
+        .students-list h5 {
+            margin: 0 auto;
+            text-align: center;
+            font-size: larger;
+            color: #337AB7;
+            padding: 0.5em;
+        }
+        img {
+            height: 5em;
+            width: 5em;
+            background-color: black;
+            float: left;
+            clear: both;
+        }
+        .clearfix:after {
+            content: ".";
+            display: block;
+            height: 0;
+            clear: both;
+            visibility: hidden;
+        }
+        .clearfix {
+            zoom: 1;     /* triggers hasLayout */
+        }
+        .student-name {
+            margin-left: 1em;
+            font-weight: bolder;
+            text-shadow: 1px 1px #898989;
+        }
+        .student-id {
+            margin-left: 1em;
+            font-size: 80%;
+            font-style: italic;
+            font-weight: bold;
+            text-shadow: 1px 1px #898989;
+        }
+        .badge {
+            background-color: red;
+            color: white;
+        }
+        .student-div {
+            background-color: #5cb85c;
+            color: white;
+        }
+        .red {
+            background-color: #d9534f;
+        }
+    </style>
+
+    <script>
+
+    </script>
+</body>
+</html>
