@@ -9,66 +9,68 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="style.css"/>
+    <!--<script src="app.js"></script>-->
 
 </head>
 <body>
     <div class="custom-nav navbar-fixed-top">
+        <span class="back-button">Back</span>
         <h4>Ulab Attendance System</h4>
     </div>
     <div class="container-fluid">
         <div class="login-form">
             <div class="panel panel-primary">
                 <div class="panel-heading">
-                    <h3 class="panel-title">Login</h3>
+                    <h3 class="panel-title" style="font-size: larger">Login</h3>
                 </div>
                 <div class="panel-body">
                     <input class="form-control" type="text" placeholder="login credential"/>
                     &nbsp;
                     <input class="form-control" type="password" placeholder="password"/>
                     &nbsp;
-                    <button class="btn btn-success btn-block">Login</button>
+                    <button id="login-btn" class="btn btn-success btn-block btn-lg">Login</button>
                 </div>
             </div>
         </div>
         <div class="select-course">
-            <h5>Current Course</h5>
-            <button class="btn btn-success btn-block">Software Engineering</button>
+            <h5 style="font-size: larger">Current Course</h5>
+            <button class="btn btn-success btn-block btn-lg course">Software Engineering</button>
             <hr/>
-            <h5>Other Course</h5>
-            <button class="btn btn-warning btn-block">Database Management System</button>
-            <button class="btn btn-warning btn-block">Object Oriented Programming</button>
+            <h5 style="font-size: larger">Other Course</h5>
+            <button class="btn btn-warning btn-block btn-lg course">Database Management System</button>
+            <button class="btn btn-warning btn-block btn-lg course">Object Oriented Programming</button>
         </div>
         <div class="select-contact-event">
-            <h5>Select Contact Event</h5>
-            <button class="btn btn-danger btn-block">Lecture</button>
-            <button class="btn btn-success btn-block">Seminar</button>
+            <h5 style="font-size: larger">Select Contact Event</h5>
+            <button class="btn btn-success btn-block btn-lg contact">Lecture</button>
+            <button class="btn btn-success btn-block btn-lg contact">Seminar</button>
         </div>
         <div class="students-list">
-            <h5>Students List</h5>
+            <h5 style="font-size: larger">Students List</h5>
             <ul class="list-group">
-                <li class="list-group-item clearfix student-div">
+                <li id="student1" class="list-group-item clearfix student-div">
                     <img src="http://teamer.net/assets/imgs/empty-profile.jpg"/>
                     <span class="student-name">Md. Rifatul Islam Chayon</span><span class="badge">1</span> <br/>
                     <span class="student-id">121014009</span>
                 </li>
-                <li class="list-group-item clearfix student-div">
+                <li id="student2" class="list-group-item clearfix student-div">
                     <img src="http://teamer.net/assets/imgs/empty-profile.jpg"/>
                     <span class="student-name">Sariful Islam Shaon</span><span class="badge">3</span> <br/>
                     <span class="student-id">121014009</span>
                 </li>
-                <li class="list-group-item clearfix student-div">
+                <li id="student3" class="list-group-item clearfix student-div">
                     <img src="http://teamer.net/assets/imgs/empty-profile.jpg"/>
                     <span class="student-name">Momtahinul Isdani</span><span class="badge">4</span> <br/>
                     <span class="student-id">121014009</span>
                 </li>
-                <li class="list-group-item clearfix student-div red">
+                <li id="student4" class="list-group-item clearfix student-div">
                     <img src="http://teamer.net/assets/imgs/empty-profile.jpg"/>
                     <span class="student-name">Anik Hossain</span><span class="badge">2</span> <br/>
                     <span class="student-id">121014009</span>
                 </li>
 
             </ul>
-            <button class="btn btn-success btn-lg btn-block">Submit Attendance</button>
+            <button class="btn btn-success btn-lg btn-block submit-attn">Submit Attendance</button>
         </div>
     </div>
 
@@ -82,8 +84,15 @@
         .custom-nav {
             background-color: #337AB7;
         }
+        .back-button {
+            float: left;
+            color: white;
+            padding-left: 1em;
+            padding-top: .5em;
+        }
         .container-fluid {
             margin-top: 3em;
+            margin-bottom: 3em;
         }
         .custom-nav h4 {
             padding: 0.5em;
@@ -155,14 +164,120 @@
         .student-div {
             background-color: #5cb85c;
             color: white;
+            margin-top: 1em;
         }
         .red {
             background-color: #d9534f;
         }
+        .green {
+            background-color: #5cb85c;
+        }
     </style>
 
     <script>
+        $(document).ready(function(){
+            $('.login-form').show();
+            $('.select-course').hide();
+            $('.select-contact-event').hide();
+            $('.students-list').hide();
 
+            var current_page = 0; //login-form
+
+            $('#login-btn').on('click', function () {
+                $('.login-form').hide(300);
+                $('.select-course').show(300);
+                current_page = 1;
+            });
+            $('.course').on('click', function () {
+                $('.select-course').hide(300);
+                $('.select-contact-event').show(300);
+                current_page = 2;
+            });
+            $('.contact').on('click', function () {
+                $('.select-contact-event').hide(300);
+                $('.students-list').show(300);
+                current_page = 3;
+            });
+            var student_1 = 0;
+            var student_2 = 0;
+            var student_3 = 0;
+            var student_4 = 0;
+
+            $('#student1').on('click', function () {
+                if(student_1 == 0)
+                {
+                    $('#student1').addClass('red');
+                    student_1 = 1;
+                }
+                else
+                {
+                    $('#student1').removeClass('red');
+                    student_1 = 0;
+                }
+            });
+            $('#student2').on('click', function () {
+                if(student_2 == 0)
+                {
+                    $('#student2').addClass('red');
+                    student_2 = 1;
+                }
+                else
+                {
+                    $('#student2').removeClass('red');
+                    student_2 = 0;
+                }
+            });
+            $('#student3').on('click', function () {
+                if(student_3 == 0)
+                {
+                    $('#student3').addClass('red');
+                    student_3 = 1;
+                }
+                else
+                {
+                    $('#student3').removeClass('red');
+                    student_3 = 0;
+                }
+            });
+            $('#student4').on('click', function () {
+                if(student_4 == 0)
+                {
+                    $('#student4').addClass('red');
+                    student_4 = 1;
+                }
+                else
+                {
+                    $('#student4').removeClass('red');
+                    student_4 = 0;
+                }
+            });
+            $('.submit-attn').on('click', function(){
+                alert('Attendance Successfully Recorded!');
+                $('.students-list').hide(300);
+                $('.select-course').show(300);
+                current_page = 1;
+            });
+            $('.back-button').on('click', function(){
+                if(current_page == 1)
+                {
+                    $('.login-form').show(300);
+                    $('.select-course').hide(300);
+                    current_page = 0;
+                }
+                else if(current_page == 2)
+                {
+                    $('.select-course').show(300);
+                    $('.select-contact-event').hide(300);
+                    current_page = 1;
+                }
+                else if(current_page == 3)
+                {
+                    $('.select-contact-event').show(300);
+                    $('.students-list').hide(300);
+                    current_page = 2;
+                }
+            });
+        });
     </script>
 </body>
 </html>
